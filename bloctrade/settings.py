@@ -91,11 +91,12 @@ WSGI_APPLICATION = 'bloctrade.wsgi.application'
 DATABASES = {
 
     'default': {
+    
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'BloctradeDatabase',
         'USER': 'BloctradeUser',
         'PASSWORD': 'BloctradePassword',
-        'HOST': 'bloctrade.ck9i4akbcyka.us-west-2.rds.amazonaws.com',
+        'HOST': 'localhost',#bloctrade.ck9i4akbcyka.us-west-2.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
