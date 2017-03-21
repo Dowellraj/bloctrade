@@ -96,11 +96,11 @@ class authentication(APIView):
 
 					try:
 						
-						createAuthentication = userToken.objects.create(token=djangoToken,userName=userName)
+						createAuthentication = userToken.objects.create(token=djangoToken,userName=emailId)
 						
 						data = createAuthentication.save()
 						
-						data = {'success':True,'djangotoken':str(djangoToken),'role':role,'msg':' Authenticate successfully','user':userName,'contactNumber':contactNumber}
+						data = {'success':True,'djangotoken':str(djangoToken),'role':checkActiveUser.role,'msg':' Authenticate successfully','user':checkActiveUser.userName,'contactNumber':checkActiveUser.contactNumber}
 						return HttpResponse(json.dumps(data),content_type="application/json")
 
 					except Exception,e:
@@ -180,7 +180,6 @@ class logout(APIView):
 
 		except ObjectDoesNotExist:
 			data = {'success':False,'msg':'Account is not yet logout'}
-			print data
 			return HttpResponse(json.dumps(data),content_type="application/json")
 
 
