@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from loginApp import authenticationAPI
+from loginApp import authenticationAPI,calculator
 
 # urlpatterns = [
     # url(r'^admin/', admin.site.urls),
@@ -23,4 +23,6 @@ urlpatterns = [
 
     url(r'^signup/$', authenticationAPI.authentication.as_view(),name='signup'),
     url(r'^logout/$', authenticationAPI.logout.as_view(),name='logout'),
+    url(r'^calculator/$', calculator.calculate.as_view(),name='calculator'),
+
 ]
